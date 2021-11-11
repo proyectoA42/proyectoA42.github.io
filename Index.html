@@ -1,0 +1,136 @@
+<!DOCTYPE html> <!--Define las equiquetas y sus caracte5risticas-->
+<!--PAgina para mosstrar los cuadros mas comunes-->
+<html>
+  <head>
+    <title>Textos</title>
+    <meta charset="UTF-8">
+    <!--Detecta la resolucion del dispositivos-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    
+    <!--cada porpiedad se divide con ;
+    en body  inlineblock todo lo que este dentreo del cuerpo lo vea como una caja 
+    *(cualqueir elementno) que tenga esos estilos tengo un borde deslgado azul
+    .error si da error marca con rojo 
+    -->
+    <style>
+      html {font-family: sans-serif; text-align: center} 
+      body {display: inline-block; text-align: left}
+      *:required, .obligatorio {border: thin solid blue}
+      input[type=number], .numero {text-align: right}
+      .error {color:rgb(65, 48, 48)}
+    </style>
+  </head>
+  <body>
+    <header> <!--definir el titulo de la pagina-->
+      <h1>Textos</h1>
+    </header>
+    <!--Creacion de formulario nombre del formulario(identificador) y atributos (accionnombre de la funcion javascrip)-->
+    <form id="forma" action="javascript:;"> 
+      <p><em>El borde azul indica que es obligatorio</em></p> <!--em = Enfasis-->
+      <p>
+        <label accesskey="N">  <!--Identificador-->
+          Nombre<br><!--br=salto
+              En java scrip se manipula con name, autofocus = cuando se despliegue la opagina se para el 
+                    cursor ahi,
+                    required=obligatori, 
+                    pattern=minimo de caracteres 
+                    maxlength= tamaño minimo de caracteres a capturar
+                    size= tamaño de cuadro de esntrada
+                    placeholder= marca de agua -->  
+          <input name="nombre" type="text" autofocus required pattern=".{1,30}" 
+                 maxlength="30" size="33" placeholder="1 a 30 caracteres">
+        </label> <!--Salto-->
+        <!--todo lo capturado del cuadro lo direccione a una salida-->
+        <br><output id="salidaNombre"></output> 
+      </p>
+      <p>
+        <label accesskey="S">
+          Secreto<br>
+          <!--el tipo password es para ocultar los valores 
+            autocomplete= para completarse solo o no guardar teclas 
+            -->
+          <input name="secreto" type="password" autocomplete="off" required
+                 pattern=".{5,30}"
+                 maxlength="30" size="33" placeholder="5 a 30 caracteres">
+        </label>
+        <br><output id="salidaSecreto"></output>
+      </p>
+      <p>
+        <label accesskey="l">
+          Navegador de Internet<br>
+          <!--list= manda a llamar la lista creada al final  -->
+          <input name="navegador" type="text" required list="navegadores">
+        </label>
+        <br><output id="salidaNavegador"></output>
+      </p>
+      <p>
+        <label accesskey="C">
+          Correo Electrónico<br>
+          <!--del tipo email para que tenga @-->
+          <input name="email" type="email" required size="33">
+        </label>
+        <br><output id="salidaEmail"></output>
+      </p>
+      <p>
+        <label accesskey="U">
+          Usuario<br>
+          <!--captura especializada en pattern para indicar partron de captura 
+            indica que solo pueda capturar letras y digitos {limite de datos} -->
+          <input name="usuario" type="text" pattern="[A-Za-z0-9]{4,16}" required
+                 maxlength="16" size="19" placeholder="4 a 16 letras o dígitos">
+        </label>
+        <br><output id="salidaUsuario"></output>
+      </p>
+      <p>
+        <label accesskey="F">
+          URL Favorita<br>
+          <!--typo de dato url ,value https// se ve en el cuadro -->
+          <input name="url" type="url" required size="33" value="http://">
+        </label>
+        <br><output id="salidaUrl"></output>
+      </p>
+      <p>
+        <label accesskey="T">
+          Teléfono<br>
+          <!--tipo= tel para telefono -->
+          <input name="telefono" type="tel" required pattern="\d{10,12}"
+                 maxlength="12" size="14" placeholder="10 a 12 dígitos">
+        </label>
+        <br><output id="salidaTelefono"></output>
+      </p>
+      <p>
+        <label accesskey="B">
+          Buscar <br>
+          <!--tipo search para busquedas-->
+          <input name="buscar" type="search" result="5" autosave="buscar" size="17"
+                 required placeholder="Buscar">
+        </label>
+        <br><output id="salidaBuscar"></output>
+      </p>
+      <p>
+        <label accesskey="V">
+          Verso<br>
+          <!--en "texarea"  para un parrafo rows=lineas del recuadro cols=columnas-->
+          <textarea name="verso" required rows="5" cols="30"
+                    placeholder="Un verso que te recuerde tu infancia"></textarea>
+        </label>
+        <br><output id="salidaVerso"></output>
+      </p>
+      <!--ponemos el botod para guardar datos-->
+      <p><input type="submit" value ="Procesar" accesskey="P"></p>
+    </form>
+    <footer> <!--Pied de pagina-->
+      Copyright 2021 CarlosA
+    </footer>
+    <!--Lsita creada para el cuadro navegadores-->
+    <datalist id="navegadores">
+      <option value="Internet Explorer">
+      <option value="Safari">
+      <option value="Chrome">
+      <option value="Edge">
+      <option value="Firefox">
+      <option value="Opera">
+    </datalist>
+    <script src="js/CtrlTextos.js"></script>
+  </body>
+</html>
