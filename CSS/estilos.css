@@ -1,0 +1,22 @@
+html{
+    font-family: sans-serif;
+    text-align: center;
+}
+
+body{
+    display: inline-block;/*Todo en una caja centrada*/
+    text-align: left;/*Todo lo que este en la caja alineado a la izquierda*/
+}
+
+*:required{
+    border: thin solid blue;/*Borde de las cajas de texto*/
+}
+
+footer{
+    font-size: small;
+}
+output{
+    font-weight: bold;
+    font-size: large;
+    color: brown;
+}
